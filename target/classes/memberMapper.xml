@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.aaron.springmvcproject.member.MemberMapper">
+	<insert id="join"
+		parameterType="com.aaron.springmvcproject.member.Member">
+		insert into smvc_project_member
+		values(#{spm_id}, #{spm_pw}, #{spm_bcn},
+		#{spm_name}, #{spm_birthday}, #{spm_address}, #{spm_photo})
+	</insert>
+
+	<select id="getMemberByID"
+		parameterType="com.aaron.springmvcproject.member.Member"
+		resultType="com.aaron.springmvcproject.member.Member">
+		select * from smvc_project_member
+		where spm_id = #{spm_id}
+	</select>
+	
+	<update id="update" parameterType="com.aaron.springmvcproject.member.Member">
+		update smvc_project_member
+		set spm_id=#{spm_id}, spm_bcn=#{spm_bcn}, spm_name=#{spm_name},
+		spm_birthday=#{spm_birthday}, spm_address=#{spm_address}, spm_photo=#{spm_photo}
+		where spm_id=#{spm_id}
+	</update>
+	
+	<delete id="delete" parameterType="com.aaron.springmvcproject.member.Member">
+		delete from smvc_project_member where spm_id = #{spm_id}
+	</delete>
+	
+</mapper>

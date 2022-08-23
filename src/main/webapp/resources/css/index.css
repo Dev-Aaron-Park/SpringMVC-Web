@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+body {
+	background-color: #E3F2FD;
+}
+
+a {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#headerArea {
+	opacity: 0;
+	transition: all 0.5s ease-out;
+	border-spacing: 0;
+	width: 100%;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+}
+
+#titleArea {
+	background-color: #E3F2FD;
+	width: 1200px;
+	height: 100px;
+}
+
+#title {
+	width: 80%;
+}
+
+#menuArea {
+	background-color: #1565C0;
+	width: 1200px;
+	height: 40px;
+}
+
+#menuBtn a{
+	color: #BBDEFB;
+	font-weight: 600;
+}
+
+#menuBtn a:hover{
+	color: #EEEEEE;
+	font-weight: 700;
+}
+
+#contentsArea {
+	width: 1200px;
+	margin: auto;
+	padding-top: 170px; 
+}
+
+#loginArea {
+	transition: all 0.5s ease-out;
+	width: 300px;
+	height: 300px;
+	position: fixed;
+	right: -300px;
+	bottom: 10px;
+	opacity: 0;
+	background-color: #424242EE;
+	border-radius: 5px;
+	border: #757575 solid 4px;
+}

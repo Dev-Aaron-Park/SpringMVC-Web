@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+#profileCard {
+	width: 80%;
+	height: 100px;
+	margin-bottom: 30px;
+	border-bottom: #757575 solid 2px;
+}
+
+#cardImg {
+	width: 100px;
+}
+
+#cardImg img{
+	width: 80px;
+	border-radius: 5px;
+	border: #E3F2FD solid 2px;
+}
+
+#cardId {
+	color: #E3F2FD;
+	font-size: 14pt;
+	font-weight: 600;
+}
+
+#userMenu {
+	width: 80%;
+}
+
+#userMenu td {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#userMenu a {
+	color: #E3F2FD;
+}
+
+#userMenu a:hover {
+	color: #42A5F5;
+}

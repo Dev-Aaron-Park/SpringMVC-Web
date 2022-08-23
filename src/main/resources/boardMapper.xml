@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaron.springmvcproject.board.BoardMapper">
+
+	<insert id="create"
+		parameterType="com.aaron.springmvcproject.board.BoardWriting">
+		insert into smvc_project_board
+		values(smvc_project_board_seq.nextval, #{spb_writer}, #{spb_title},
+			#{spb_content}, sysdate, #{spb_color})
+	</insert>
+
+	<select id="readAllWriting"
+		parameterType="com.aaron.springmvcproject.PageManager"
+		resultType="com.aaron.springmvcproject.board.BoardWriting">
+		select *
+		from (
+			select rownum as rn, spb_no, spb_writer, spb_title, spb_content, spb_date, spb_color, spm_photo
+			from (
+				select spb_no, spb_writer, spb_title, spb_content, spb_date, spb_color, spm_photo
+				from smvc_project_board, SMVC_PROJECT_MEMBER 
+				where spm_id = spb_writer
+					and (spb_writer like '%'||#{keyword}||'%' or spb_title like '%'||#{keyword}||'%' or spb_content like '%'||#{keyword}||'%')
+				order by spb_date desc
+			) 
+		) where rn &gt;=#{start} and rn &lt;=#{end}
+	</select>
+	
+	<select id="readAllCount"
+		parameterType="com.aaron.springmvcproject.PageManager"
+		resultType="java.lang.Integer">
+		select count(*) from smvc_project_board
+		where spb_writer like '%'||#{keyword}||'%' or spb_title like '%'||#{keyword}||'%' or spb_content like '%'||#{keyword}||'%'
+	</select>
+	
+	<select id="detail"
+		parameterType="com.aaron.springmvcproject.board.BoardWriting"
+		resultType="com.aaron.springmvcproject.board.BoardWriting">
+		select * from smvc_project_board
+		where spb_no = #{spb_no}
+	</select>
+	
+</mapper>

@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+#loginTable {
+	width: 90%;
+}
+
+#loginTitle {
+	padding-bottom: 10px;
+	font-size: 14pt;
+	font-weight: 700;
+	color: #F5F5F5;
+}
+
+#loginTable input {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 90%;
+	height: 30px;
+	background-color: #F5F5F5;
+	outline: none;
+	border-radius: 4px;
+}
+
+#loginTable button {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 80%;
+	height: 30px;
+	background-color: #757575;
+	border: #F5F5F5 solid 3px;
+	border-radius: 4px;
+	color: #F5F5F5;
+}
+
+#loginJoinBtn {
+	margin-top: 10px;
+	width: 150px;
+}
+
+#loginJoinBtn a{
+	color: #81D4FA;
+	font-weight: 600;
+}

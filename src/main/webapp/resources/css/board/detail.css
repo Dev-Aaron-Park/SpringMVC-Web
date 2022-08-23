@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+#writingArea {
+	width: 80%;
+	height: 500px;
+}
+
+#titleTr {
+	height: 40px;
+}
+
+#titleTr #no {
+	width: 10%;
+}
+
+#titleTr #writer {
+	width: 20%;
+}
+
+#dateTr {
+	height: 30px;
+}
+
+#writingArea #content {
+	padding-left: 20px;
+}
+
+#commentArea {
+	width: 80%;
+	margin-top: 20px;	
+}
+
+#commentShowArea table{
+	width: 100%;
+}
+
+#commentPhoto {
+	width: 10%;
+}
+
+#commentId {
+	width: 15%;
+}
+
+#commentInputBtn {
+	width: 10%;
+	height: 40px;
+}
