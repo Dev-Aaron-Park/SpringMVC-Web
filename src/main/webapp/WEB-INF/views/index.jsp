@@ -18,6 +18,7 @@
 <script type="text/javascript" src="resources/js/rechecker.js"></script>
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/smp_jQuery.js"></script>
+<script type="text/javascript" src="resources/js/link.js"></script>
 </head>
 <body>
 	<table id="headerArea">

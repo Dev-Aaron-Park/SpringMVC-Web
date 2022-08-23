@@ -21,11 +21,36 @@ public class BoardController {
 	@Autowired
 	private BoardDAO bDAO;
 	
+	@RequestMapping(value = "/board.delete.do", method = RequestMethod.GET)
+	public String boardDeleteDo(BoardWriting bw, HttpServletRequest req) {
+		bDAO.delete(bw, req);
+		mDAO.isLogined(req);
+		bDAO.readAllWriting(1, req);
+		req.setAttribute("contentsPage", "board/main.jsp");
+		return "index";
+	}
+
 	@RequestMapping(value = "/board.detail.go", method = RequestMethod.GET)
 	public String boardDetailGo(BoardWriting bw, HttpServletRequest req) {
 		bDAO.detail(bw, req);
 		mDAO.isLogined(req);
 		req.setAttribute("contentsPage", "board/detail.jsp");
+		return "index";
+	}
+	
+	@RequestMapping(value = "/board.edit.do", method = RequestMethod.GET)
+	public String boardEditDo(BoardWriting bw, HttpServletRequest req) {
+		// Edit
+		mDAO.isLogined(req);
+		req.setAttribute("contentsPage", "board/detail.jsp");
+		return "index";
+	}
+	
+	@RequestMapping(value = "/board.edit.go", method = RequestMethod.GET)
+	public String boardEditGo(BoardWriting bw, HttpServletRequest req) {
+		bDAO.detail(bw, req);
+		mDAO.isLogined(req);
+		req.setAttribute("contentsPage", "board/edit.jsp");
 		return "index";
 	}
 

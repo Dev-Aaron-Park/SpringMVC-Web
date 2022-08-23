@@ -90,6 +90,12 @@ public class BoardDAO {
 			req.setAttribute("r", "Write Failed");
 		}
 	}
+
+	public void delete(BoardWriting bw, HttpServletRequest req) {
+		bw.setSpb_no(new BigDecimal(req.getParameter("no")));
+		ss.getMapper(BoardMapper.class).delete(bw);
+		req.setAttribute("r", "Delete Success");
+	}
 	
 	public void detail(BoardWriting bw, HttpServletRequest req) {
 		bw.setSpb_no(new BigDecimal(req.getParameter("no")));
@@ -119,4 +125,7 @@ public class BoardDAO {
 		req.setAttribute("page", page);
 	}
 	
+	public void edit(BoardWriting bw, HttpServletRequest req) {
+		// edit
+	}
 }

@@ -30,6 +30,12 @@
 				${bw.spb_content }
 			</td>
 		</tr>
+		<tr>
+			<td id="btn" colspan="3" align="right">
+				<a onclick="boardEdit(${bw.spb_no });">Edit</a>
+				<a onclick="boardDelete(${bw.spb_no });">Delete</a>
+			</td>
+		</tr>
 	</table>
 	
 	<!-- Comment Area -->

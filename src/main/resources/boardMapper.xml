@@ -39,4 +39,16 @@
 		where spb_no = #{spb_no}
 	</select>
 	
+	<delete id="delete"
+		parameterType="com.aaron.springmvcproject.board.BoardWriting">
+		delete from smvc_project_board where spb_no = #{spb_no}
+	</delete>
+	
+	<update id="edit"
+		parameterType="com.aaron.springmvcproject.board.BoardWriting">
+		update smvc_project_board
+		set spb_no=#{spb_no}, spb_writer=#{spb_writer}, spb_title=#{spb_title},
+		spb_content=#{spb_content}, spb_date=#{spb_date}, spb_color=#{spb_color}
+		where spb_no=#{spb_no}
+	</update>
 </mapper>

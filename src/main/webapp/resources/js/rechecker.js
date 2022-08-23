@@ -14,7 +14,3 @@ function boardWriteCheck(member) {
 		location.href = "board.write.go";
 	}
 }
-
-function boardDetail(no) {
-	location.href = "board.detail.go?no=" + no;
-}
