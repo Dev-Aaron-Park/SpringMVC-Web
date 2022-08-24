@@ -2,7 +2,8 @@ var startBtnSwitch = true;
 function connectFoldMenuEvnet() {
 	$("#contentsArea").click(function() {
 		startBtnSwitch = true;
-		$("#loginArea").css("right", "-300px").css("opacity", "0");
+		$("#loginArea").css("right", "-300px").css("opacity", "1");
+		$("#startBtn").css("right", "-4px")
 	})
 }
 
@@ -10,8 +11,10 @@ function connectSummonStartMenuEvent() {
 	$("#startBtn").click(function(){
 		if (startBtnSwitch) {
 			$("#loginArea").css("right", "10px").css("opacity", "1");
-		} else {dltj
-			$("#loginArea").css("right", "-300px").css("opacity", "0");
+			$("#startBtn").css("right", "306px")
+		} else {
+			$("#loginArea").css("right", "-300px").css("opacity", "1");
+			$("#startBtn").css("right", "-4px")
 		}
 		startBtnSwitch = !startBtnSwitch;
 	});
@@ -23,7 +26,7 @@ function showTitle() {
 	
 	setTimeout(function(){
 		$("#headerArea").css("opacity", "1");
-	}, 1000);
+	}, 100);
 }
 
 $(function(){

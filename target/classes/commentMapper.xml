@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaron.springmvcproject.comment.CommentMapper">
+	<insert id="create"
+		parameterType="com.aaron.springmvcproject.comment.Comment">
+		insert into smvc_project_comment values(smvc_project_comment_seq.nextval, #{spc_board_no}, #{spc_writer}, #{spc_content}, sysdate)
+	</insert>
+	
+</mapper>

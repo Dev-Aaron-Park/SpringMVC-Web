@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="resources/css/board/main.css">
 <link rel="stylesheet" href="resources/css/board/write.css">
 <link rel="stylesheet" href="resources/css/board/detail.css">
+<link rel="stylesheet" href="resources/css/board/edit.css">
 <script type="text/javascript" src="resources/js/validChecker.js"></script>
 <script type="text/javascript" src="resources/js/aaronValidChecker.js"></script>
 <script type="text/javascript" src="resources/js/rechecker.js"></script>

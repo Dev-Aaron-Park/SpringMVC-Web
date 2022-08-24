@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+#boardEditForm {
+	width: 80%;
+	height: 500px;
+}
+
+#editTitle {
+	height: 40px;
+}
+
+#editTitle input {
+	width: 90%;
+	height: 40px;
+}
+
+#editContent textarea{
+	margin-top: 20px;
+	width: 90%;
+	height: 400px;
+	resize: none;
+}
+
+#editBtn {
+	height: 40px;
+}
+

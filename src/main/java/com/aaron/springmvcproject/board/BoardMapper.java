@@ -3,6 +3,8 @@ package com.aaron.springmvcproject.board;
 import java.util.List;
 
 import com.aaron.springmvcproject.PageManager;
+import com.aaron.springmvcproject.comment.Comment;
+import com.aaron.springmvcproject.member.Member;
 
 public interface BoardMapper {
 	public abstract int create(BoardWriting bw);
@@ -15,5 +17,9 @@ public interface BoardMapper {
 	
 	public abstract int readAllCount(PageManager pm);
 	
-	public abstract int edit(PageManager pm);
+	public abstract int edit(BoardWriting mw);
+	
+	public abstract int getMemberPostingsCount(Member m);
+	
+	public abstract List<Comment> getComment(BoardWriting bw);
 }

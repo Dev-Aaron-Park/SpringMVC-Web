@@ -48,7 +48,19 @@
 		parameterType="com.aaron.springmvcproject.board.BoardWriting">
 		update smvc_project_board
 		set spb_no=#{spb_no}, spb_writer=#{spb_writer}, spb_title=#{spb_title},
-		spb_content=#{spb_content}, spb_date=#{spb_date}, spb_color=#{spb_color}
+		spb_content=#{spb_content}, spb_date=sysdate, spb_color=#{spb_color}
 		where spb_no=#{spb_no}
 	</update>
+	
+	<select id="getMemberPostingsCount"
+		parameterType="com.aaron.springmvcproject.member.Member"
+		resultType="java.lang.Integer">
+		select count(*) from smvc_project_board where spb_writer = #{spm_id}
+	</select>
+	
+	<select id="getComment"
+		parameterType="com.aaron.springmvcproject.board.BoardWriting"
+		resultType="com.aaron.springmvcproject.comment.Comment">
+		select * from smvc_project_comment where spc_board_no=#{spb_no}
+	</select>
 </mapper>

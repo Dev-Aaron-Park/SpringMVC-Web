@@ -33,16 +33,22 @@ create sequence smvc_project_board_seq;
 
 select * from smvc_project_board;
 
-select *
-from (
-	select rownum as rn, spb_no, spb_writer, spb_title, spb_content, spb_date, spb_color, spm_photo
-	from (
-		select spb_no, spb_writer, spb_title, spb_content, spb_date, spb_color, spm_photo
-		from smvc_project_board, SMVC_PROJECT_MEMBER 
-		where spm_id = spb_writer
-		order by spb_date desc
-	) 
-) where rn >= 2 and rn <= 5;
+----------- 댓글 ------------
+
+create table smvc_project_comment(
+	spc_no number(5) primary key,
+	spc_board_no number(5) not null,
+	spc_writer varchar2(10 char) not null,
+	spc_content varchar2(200 char) not null,
+	spc_date date not null,
+	constraint comment_board
+		foreign key(spc_board_no) references smvc_project_board(spb_no)
+		on delete cascade
+);
+
+create sequence smvc_project_comment_seq;
+
+select * from smvc_project_comment;
 
 ------------------------------
 
@@ -54,13 +60,10 @@ create table smvc_project_weather_color(
 	spwc_color
 );
 
-select *
-from (
-	select rownum as rn, spb_no, spb_writer, spb_title, spb_content, spb_date, spb_color, spm_photo
-	from (
-		select spb_no, spb_writer, spb_title, spb_content, spb_date, spb_color, spm_photo
-		from smvc_project_board, SMVC_PROJECT_MEMBER 
-		where spm_id = spb_writer
-		order by spb_date desc
-	) 
-) where rn >= 2 and rn <= 5;
+------------ Test ------------
+
+
+
+
+
+

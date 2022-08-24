@@ -1,11 +1,11 @@
-function boardDetail(no) {
+function boardDetailGo(no) {
 	location.href = "board.detail.go?no=" + no;
 }
 
-function boardDelete(no) {
+function boardDeleteDo(no) {
 	location.href = "board.delete.do?no=" + no;
 }
 
-function boardEdit(no) {
+function boardEditGo(no) {
 	location.href = "board.edit.go?no=" + no;
 }

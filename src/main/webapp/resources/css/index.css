@@ -58,8 +58,28 @@ a {
 	position: fixed;
 	right: -300px;
 	bottom: 10px;
-	opacity: 0;
+	opacity: 1;
 	background-color: #424242EE;
 	border-radius: 5px;
 	border: #757575 solid 4px;
 }
+
+#startBtn {
+	cursor: pointer;
+	transition: all 0.5s ease-out;
+	background-color: #424242EE;
+	border: #757575 solid 3px;
+	border-right: #424242EE solid 0px;
+	border-radius: 5px;
+	position: fixed;
+	right: -4px;
+	bottom: 150px;
+	width: 50px;
+	height: 50px;
+	color: #EEEEEE;
+	font-weight: 700;
+}
+
+
+
+

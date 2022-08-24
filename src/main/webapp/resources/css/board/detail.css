@@ -39,12 +39,12 @@
 	width: 100%;
 }
 
-#commentPhoto {
+#commentId {
 	width: 10%;
 }
 
-#commentId {
-	width: 15%;
+#commentDate {
+	width: 20%;	
 }
 
 #commentInputBtn {

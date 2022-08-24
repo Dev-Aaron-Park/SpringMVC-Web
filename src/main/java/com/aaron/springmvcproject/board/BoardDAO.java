@@ -20,7 +20,6 @@ import org.springframework.stereotype.Service;
 import com.aaron.springmvcproject.PageManager;
 import com.aaron.springmvcproject.SMPAttribute;
 import com.aaron.springmvcproject.member.Member;
-import com.aaron.token.generator.AaronTokenGenerator;
 
 @Service
 public class BoardDAO {
@@ -31,7 +30,7 @@ public class BoardDAO {
 	
 	@Autowired
 	private SqlSession ss;
-
+	
 	public void setReadAllCount(PageManager pm) {
 		readAllCount = ss.getMapper(BoardMapper.class).readAllCount(pm);
 	}
@@ -65,9 +64,6 @@ public class BoardDAO {
 			
 			String token = req.getParameter("token");
 			String lastToken = (String) req.getSession().getAttribute("boardWritingToken");
-			////////////////////////////////////
-			System.out.println(token);
-			System.out.println(lastToken);
 			
 			if (lastToken != null && token.equals(lastToken)) {
 				return;
@@ -92,40 +88,65 @@ public class BoardDAO {
 	}
 
 	public void delete(BoardWriting bw, HttpServletRequest req) {
-		bw.setSpb_no(new BigDecimal(req.getParameter("no")));
-		ss.getMapper(BoardMapper.class).delete(bw);
-		req.setAttribute("r", "Delete Success");
+		try {
+			bw.setSpb_no(new BigDecimal(req.getParameter("no")));
+			ss.getMapper(BoardMapper.class).delete(bw);
+			readAllCount--;
+			req.setAttribute("r", "Delete Success");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void detail(BoardWriting bw, HttpServletRequest req) {
-		bw.setSpb_no(new BigDecimal(req.getParameter("no")));
-		req.setAttribute("bw", ss.getMapper(BoardMapper.class).detail(bw));
+		try {
+			bw.setSpb_no(new BigDecimal(req.getParameter("no")));
+			req.setAttribute("bw", ss.getMapper(BoardMapper.class).detail(bw));
+			req.setAttribute("comments", ss.getMapper(BoardMapper.class).getComment(bw));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void readAllWriting(int page, HttpServletRequest req) {
-		
-		setReadAllCount(new PageManager("", null, null)); // 삭제
-		
-		int perPage = smpAttr.getBoardPerPage();
-		int readCount = readAllCount;
-		int start = (page - 1) * perPage + 1;
-		int end = perPage * page;
-		PageManager pm = new PageManager("", new BigDecimal(start), new BigDecimal(end));
-		String keyword = (String) req.getSession().getAttribute("keyword"); 
-		
-		if (keyword != null) {
-			pm.setKeyword(keyword);
-			readCount = ss.getMapper(BoardMapper.class).readAllCount(pm);
+		try {
+			setReadAllCount(new PageManager("", null, null)); // 삭제
+			
+			int perPage = smpAttr.getBoardPerPage();
+			int readCount = readAllCount;
+			int start = (page - 1) * perPage + 1;
+			int end = perPage * page;
+			PageManager pm = new PageManager("", new BigDecimal(start), new BigDecimal(end));
+			String keyword = (String) req.getSession().getAttribute("keyword"); 
+			
+			if (keyword != null) {
+				pm.setKeyword(keyword);
+				readCount = ss.getMapper(BoardMapper.class).readAllCount(pm);
+			}
+			
+			req.setAttribute("bwArr", ss.getMapper(BoardMapper.class).readAllWriting(pm));
+			
+			int pageCount = (int) Math.ceil(readCount / (double) perPage);
+			req.setAttribute("pageCount", pageCount);
+			req.setAttribute("page", page);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		
-		req.setAttribute("bwArr", ss.getMapper(BoardMapper.class).readAllWriting(pm));
-		
-		int pageCount = (int) Math.ceil(readCount / (double) perPage);
-		req.setAttribute("pageCount", pageCount);
-		req.setAttribute("page", page);
 	}
 	
 	public void edit(BoardWriting bw, HttpServletRequest req) {
-		// edit
+		try {
+			bw.setSpb_content(bw.getSpb_content().replace("\r\n", "<br>"));
+			if (ss.getMapper(BoardMapper.class).edit(bw) == 1) {
+				req.setAttribute("r", "Edit Success");
+				req.setAttribute("bw", ss.getMapper(BoardMapper.class).detail(bw));
+			} else {
+				req.setAttribute("r", "Edit Failed");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			req.setAttribute("r", "Edit Failed");
+		}
 	}
+
 }

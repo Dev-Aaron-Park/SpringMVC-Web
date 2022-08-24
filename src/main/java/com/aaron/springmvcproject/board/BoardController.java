@@ -14,7 +14,7 @@ import com.aaron.token.generator.AaronTokenGenerator;
 
 @Controller
 public class BoardController {
-
+	// Board 프로필 사진 가져오기
 	@Autowired
 	private MemberDAO mDAO;
 	
@@ -32,6 +32,7 @@ public class BoardController {
 
 	@RequestMapping(value = "/board.detail.go", method = RequestMethod.GET)
 	public String boardDetailGo(BoardWriting bw, HttpServletRequest req) {
+		AaronTokenGenerator.generate(req);
 		bDAO.detail(bw, req);
 		mDAO.isLogined(req);
 		req.setAttribute("contentsPage", "board/detail.jsp");
@@ -40,7 +41,7 @@ public class BoardController {
 	
 	@RequestMapping(value = "/board.edit.do", method = RequestMethod.GET)
 	public String boardEditDo(BoardWriting bw, HttpServletRequest req) {
-		// Edit
+		bDAO.edit(bw, req);
 		mDAO.isLogined(req);
 		req.setAttribute("contentsPage", "board/detail.jsp");
 		return "index";

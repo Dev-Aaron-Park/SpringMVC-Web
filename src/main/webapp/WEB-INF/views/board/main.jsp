@@ -35,7 +35,7 @@
 			</td>
 		</tr>
 		<c:forEach var="bw" items="${bwArr }">
-			<tr onclick="boardDetail(${bw.spb_no});" id="boardWriting" align="center">
+			<tr onclick="boardDetailGo(${bw.spb_no});" id="boardWriting" align="center">
 				<td>
 					${bw.spb_no }
 				</td>

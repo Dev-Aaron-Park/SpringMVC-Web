@@ -13,6 +13,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.aaron.springmvcproject.board.BoardMapper;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -25,7 +26,9 @@ public class MemberDAO {
 	public void delete(HttpServletRequest req) {
 		try {
 			Member m = (Member) req.getSession().getAttribute("loginMember");
+			int msgCount = ss.getMapper(BoardMapper.class).getMemberPostingsCount(m);
 			if (ss.getMapper(MemberMapper.class).delete(m) == 1) {
+				///////////////////////////////////////// 까기
 				req.setAttribute("r", "Delete Success");
 				String path = req.getSession().getServletContext().getRealPath("resources/img/profilePhoto");
 				String photo = URLDecoder.decode(m.getSpm_photo(), "utf-8");
