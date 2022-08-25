@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/eclipse,windows,java
 # Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,windows,java
 
+# Custom 
+.servlet-context.xml
+
 ### Eclipse ###
 .metadata
 bin/
