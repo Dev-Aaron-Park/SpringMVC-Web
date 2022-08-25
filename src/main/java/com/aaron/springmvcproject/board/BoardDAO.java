@@ -35,6 +35,10 @@ public class BoardDAO {
 		readAllCount = ss.getMapper(BoardMapper.class).readAllCount(pm);
 	}
 	
+	public void setReadAllCount(int count) {
+		readAllCount -= count;
+	}
+	
 	private void regAIData(BoardWriting bw, HttpServletRequest req) {
 		HttpsURLConnection huc = null;
 		try {

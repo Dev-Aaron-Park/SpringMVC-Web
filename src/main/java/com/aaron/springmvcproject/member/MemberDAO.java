@@ -13,12 +13,16 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.aaron.springmvcproject.board.BoardDAO;
 import com.aaron.springmvcproject.board.BoardMapper;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 @Service
 public class MemberDAO {
+	
+	@Autowired
+	private BoardDAO bDAO;
 	
 	@Autowired
 	private SqlSession ss;
@@ -28,7 +32,7 @@ public class MemberDAO {
 			Member m = (Member) req.getSession().getAttribute("loginMember");
 			int msgCount = ss.getMapper(BoardMapper.class).getMemberPostingsCount(m);
 			if (ss.getMapper(MemberMapper.class).delete(m) == 1) {
-				///////////////////////////////////////// 까기
+				bDAO.setReadAllCount(msgCount);
 				req.setAttribute("r", "Delete Success");
 				String path = req.getSession().getServletContext().getRealPath("resources/img/profilePhoto");
 				String photo = URLDecoder.decode(m.getSpm_photo(), "utf-8");

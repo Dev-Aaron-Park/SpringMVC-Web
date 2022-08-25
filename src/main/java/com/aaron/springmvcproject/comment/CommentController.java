@@ -31,4 +31,15 @@ public class CommentController {
 		}
 		return "index";
 	}
+	
+	@RequestMapping(value = "/board.comment.delete.do", method = RequestMethod.POST)
+	public String commentDeleteDo(Comment c, BoardWriting bw, HttpServletRequest req) {
+		if (mDAO.isLogined(req)) {
+			cDAO.delete(c, bw, req);
+			req.setAttribute("contentsPage", "board/detail.jsp");
+		} else {
+			req.setAttribute("contentsPage", "home.jsp");
+		}
+		return "index";
+	}
 }

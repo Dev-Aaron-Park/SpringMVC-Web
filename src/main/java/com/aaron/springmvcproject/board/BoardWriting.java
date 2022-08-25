@@ -2,6 +2,9 @@ package com.aaron.springmvcproject.board;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
+
+import com.aaron.springmvcproject.comment.Comment;
 
 public class BoardWriting {
 	private BigDecimal spb_no;

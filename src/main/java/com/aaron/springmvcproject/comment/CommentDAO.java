@@ -41,4 +41,22 @@ public class CommentDAO {
 			req.setAttribute("comments", ss.getMapper(BoardMapper.class).getComment(bw));
 		}
 	}
+	
+	public void delete(Comment c, BoardWriting bw, HttpServletRequest req) {
+		try {
+			if (ss.getMapper(CommentMapper.class).delete(c) == 1) {
+				req.setAttribute("r", "Delete Success");
+			} else {
+				req.setAttribute("r", "Delete Failed");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			req.setAttribute("r", "Delete Failed");
+		} finally {
+			bw.setSpb_no(new BigDecimal(req.getParameter("spc_board_no")));
+			req.setAttribute("bw", ss.getMapper(BoardMapper.class).detail(bw));
+			req.setAttribute("comments", ss.getMapper(BoardMapper.class).getComment(bw));
+		}
+	}
 }

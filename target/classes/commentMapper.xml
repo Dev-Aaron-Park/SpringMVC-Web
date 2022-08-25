@@ -6,4 +6,8 @@
 		insert into smvc_project_comment values(smvc_project_comment_seq.nextval, #{spc_board_no}, #{spc_writer}, #{spc_content}, sysdate)
 	</insert>
 	
+	<delete id="delete"
+		parameterType="com.aaron.springmvcproject.comment.Comment">
+		delete from smvc_project_comment where spc_no=#{spc_no}
+	</delete>
 </mapper>

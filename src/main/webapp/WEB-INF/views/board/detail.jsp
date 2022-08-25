@@ -43,7 +43,6 @@
 	</table>
 	
 	<!-- Comment Area -->
-	<form action="board.comment.do" method="POST">
 	<table id="commentArea" border="1">
 		<tr id="commentShowArea">
 			<td colspan="2">
@@ -59,11 +58,21 @@
 						<td id="commentDate">
 							<fmt:formatDate value="${c.spc_date }" type="date" pattern = "yyyy-MM-dd HH:mm:ss"/>
 						</td>
+						<c:if test="${c.spc_writer == sessionScope.loginMember.spm_id }">
+						<form action="board.comment.delete.do" method="POST">
+						<td id="commentDeleteBtn">
+							<input name="spc_no" value="${c.spc_no }" type="hidden" readonly="readonly">
+							<input name="spc_board_no" value="${c.spc_board_no }" type="hidden" readonly="readonly">
+							<button>Delete</button>
+						</td>
+						</form>
+						</c:if>
 					</tr>
 				</table>
 				</c:forEach>		
 			</td>
 		</tr>
+	<form action="board.comment.do" method="POST">
 		<tr id="commentInputArea">
 			<td id="commentInput">
 				<textarea name="spc_content" placeholder="Comment" maxlength="180"></textarea>
@@ -74,9 +83,9 @@
 			<td id="commentInputBtn">
 				<button>Input</button>
 			</td>
+	</form>
 		</tr>
 	</table>
-	</form>
 	
 	${bw.spb_color }
 </body>
