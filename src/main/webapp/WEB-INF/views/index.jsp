@@ -41,15 +41,6 @@
 						<td id="menuBtn">
 							<a href="board.go?page=1">Board</a>
 						</td>
-						<td id="menuBtn">
-							Menu2
-						</td>
-						<td id="menuBtn">
-							Menu3
-						</td>
-						<td id="menuBtn">
-							Menu4
-						</td>
 					</tr>
 				</table>
 			</td>

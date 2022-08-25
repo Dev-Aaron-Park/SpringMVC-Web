@@ -10,7 +10,7 @@
 </head>
 <body>
 	<!-- Writing Content Area -->
-	<table id="writingArea" border="1">
+	<table id="writingArea">
 		<tr id="titleTr">
 			<td id="no" align="center">
 				${bw.spb_no }
@@ -43,21 +43,21 @@
 	</table>
 	
 	<!-- Comment Area -->
-	<table id="commentArea" border="1">
+	<table id="commentArea">
 		<tr id="commentShowArea">
 			<td colspan="2">
 				<c:forEach var="c" items="${comments }">
-				<table border="1">
+				<table>
 					<tr>
-						<td id="commentId">
+						<td id="commentId" align="center">
 							${c.spc_writer }
 						</td>
-						<td>
+						<td id="commentContent" align="center">
 							${c.spc_content }
 						</td>
-						<td id="commentDate">
+						<td id="commentDate" align="center">
 							<fmt:formatDate value="${c.spc_date }" type="date" pattern = "yyyy-MM-dd HH:mm:ss"/>
-						</td>
+						</td align="center">
 						<c:if test="${c.spc_writer == sessionScope.loginMember.spm_id }">
 						<form action="board.comment.delete.do" method="POST">
 						<td id="commentDeleteBtn">
@@ -74,19 +74,17 @@
 		</tr>
 	<form action="board.comment.do" method="POST">
 		<tr id="commentInputArea">
-			<td id="commentInput">
-				<textarea name="spc_content" placeholder="Comment" maxlength="180"></textarea>
+			<td id="commentInput" align="center">
+				<textarea id="commentInputTextarea" name="spc_content" placeholder="Comment" maxlength="180"></textarea>
 				<input name="spc_board_no" value="${bw.spb_no }" readonly="readonly" type="hidden">
 				<input name="spc_writer" value="${sessionScope.loginMember.spm_id }"  readonly="readonly" type="hidden">
 				<input name="token" value="${token }" readonly="readonly" type="hidden">
 			</td>
-			<td id="commentInputBtn">
+			<td id="commentInputBtn" align="center">
 				<button>Input</button>
 			</td>
-	</form>
 		</tr>
+	</form>
 	</table>
-	
-	${bw.spb_color }
 </body>
 </html>

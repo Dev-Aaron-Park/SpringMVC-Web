@@ -2,9 +2,9 @@
 
 #boardArea {
 	width: 90%;
-	background-color: #7986CBEE;
+	background-color: #607D8BEE;
 	border-radius: 5px;
-	border: #C5CAE9 solid 4px;
+	border: #CFD8DC solid 4px;
 	border-collapse: collapse;
 }
 
@@ -28,14 +28,14 @@
 
 #boardSubTitle {
 	height: 45px;
-	background-color: #C5CAE9;
-	color: #3949AB;
+	background-color: #ECEFF1;
+	color: #37474F;
 	font-size: 12pt;
 	font-weight: 700;
 }
 
 #boardSubTitle td {
-	border: #EEEEEE solid 2px;
+	border: #455A64 solid 2px;
 }
 
 #subTitleNo {
@@ -58,6 +58,6 @@
 }
 
 #boardWriting:hover {
-	background-color: #5C6BC0;
+	background-color: #546E7A;
 	cursor: pointer;
 }

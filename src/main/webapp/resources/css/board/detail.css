@@ -3,10 +3,16 @@
 #writingArea {
 	width: 80%;
 	height: 500px;
+	background-color: #607D8B;
+	border-radius: 5px;
+	border: #607D8B solid 4px;
+	color: #37474F;
+	font-weight: 600;
 }
 
 #titleTr {
 	height: 40px;
+	background-color: #CFD8DC;
 }
 
 #titleTr #no {
@@ -24,15 +30,21 @@
 
 #dateTr {
 	height: 30px;
+	background-color: #CFD8DC;
 }
 
 #writingArea #content {
 	padding-left: 20px;
+	background-color: #CFD8DC;
 }
 
 #commentArea {
 	width: 80%;
-	margin-top: 20px;	
+	margin-top: 20px;
+	background-color: #607D8B;
+	border-radius: 5px;
+	color: #37474F;
+	font-weight: 600;
 }
 
 #commentShowArea table{
@@ -41,10 +53,19 @@
 
 #commentId {
 	width: 10%;
+	background-color: #CFD8DC;
+	border-radius: 3px;
+}
+
+#commentContent {
+	background-color: #CFD8DC;
+	border-radius: 3px;
 }
 
 #commentDate {
 	width: 20%;	
+	background-color: #CFD8DC;
+	border-radius: 3px;
 }
 
 #commentInputBtn {
@@ -54,4 +75,34 @@
 
 #commentDeleteBtn {
 	width: 7%;
+	background-color: #CFD8DC;
+	border-radius: 3px;
 }
+
+#commentDeleteBtn button {
+	color: #D50000;
+	font-weight: 600;
+	background-color: #CFD8DC;
+	border: none;
+	cursor: pointer;
+}
+
+#commentInputTextarea {
+	width: 98%;
+	height: 70px;
+	resize: none;
+	border-radius: 4px;
+}
+
+#commentInputBtn button {
+	color: #69F0AE;
+	font-weight: 600;
+	font-size: 16pt;
+	background-color: #607D8B;
+	border: none;
+	cursor: pointer;
+}
+
+
+
+
