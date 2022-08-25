@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Welcome to My WebSite</title>
 <link rel="stylesheet" href="resources/css/index.css">
 <link rel="stylesheet" href="resources/css/member/join.css">
 <link rel="stylesheet" href="resources/css/member/login.css">
@@ -28,7 +28,7 @@
 				<table id="titleArea">
 					<tr>
 						<td id="title" align="center">
-							<a href="index.do">Title Area</a>
+							<a href="index.do"><img src="resources/img/structImg/webTitle.png" width="1200px"></a>
 						</td>
 					</tr>
 				</table>
@@ -40,6 +40,9 @@
 					<tr>
 						<td id="menuBtn">
 							<a href="board.go?page=1">Board</a>
+						</td>
+						<td id="menuBtn">
+							<a href="">Gallery</a>
 						</td>
 					</tr>
 				</table>

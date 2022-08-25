@@ -11,10 +11,10 @@ function connectSummonStartMenuEvent() {
 	$("#startBtn").click(function(){
 		if (startBtnSwitch) {
 			$("#loginArea").css("right", "10px").css("opacity", "1");
-			$("#startBtn").css("right", "306px")
+			$("#startBtn").css("right", "306px");
 		} else {
 			$("#loginArea").css("right", "-300px").css("opacity", "1");
-			$("#startBtn").css("right", "-4px")
+			$("#startBtn").css("right", "-4px");
 		}
 		startBtnSwitch = !startBtnSwitch;
 	});

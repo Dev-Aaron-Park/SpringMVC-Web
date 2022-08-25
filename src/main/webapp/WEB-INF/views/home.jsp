@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Welcome to My WebSite</title>
 </head>
 <body>
 	<img src="resources/img/structImg/1.jpg" width="1200px">

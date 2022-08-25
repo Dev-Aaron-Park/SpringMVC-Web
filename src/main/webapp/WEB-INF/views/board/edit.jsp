@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Welcome to My WebSite</title>
 </head>
 <body>
 	<form action="board.edit.do">
