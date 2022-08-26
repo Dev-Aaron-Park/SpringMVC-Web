@@ -60,10 +60,18 @@ create table smvc_project_weather_color(
 	spwc_color
 );
 
------------- Test ------------
+------------ 갤러리 ------------
 
+create table smvc_project_gallery(
+	spg_no number(5) primary key,
+	spg_writer varchar2(10 char) not null,
+	spg_photo varchar2(100 char) not null,
+	spg_memo varchar2(25 char) not null,
+	spg_date date not null,
+	constraint gallery_writer
+		foreign key(spg_writer) references smvc_project_member(spm_id)
+		on delete cascade
+);
 
-
-
-
+create sequence smvc_project_gallery_seq;
 

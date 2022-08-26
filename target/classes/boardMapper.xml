@@ -61,6 +61,6 @@
 	<select id="getComment"
 		parameterType="com.aaron.springmvcproject.board.BoardWriting"
 		resultType="com.aaron.springmvcproject.comment.Comment">
-		select * from smvc_project_comment where spc_board_no=#{spb_no}
+		select * from smvc_project_comment where spc_board_no=#{spb_no} order by spc_no desc
 	</select>
 </mapper>

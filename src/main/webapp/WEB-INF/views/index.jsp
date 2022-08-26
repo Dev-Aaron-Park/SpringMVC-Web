@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="resources/css/board/write.css">
 <link rel="stylesheet" href="resources/css/board/detail.css">
 <link rel="stylesheet" href="resources/css/board/edit.css">
+<link rel="stylesheet" href="resources/css/gallery/main.css">
 <script type="text/javascript" src="resources/js/validChecker.js"></script>
 <script type="text/javascript" src="resources/js/aaronValidChecker.js"></script>
 <script type="text/javascript" src="resources/js/rechecker.js"></script>
@@ -42,7 +43,7 @@
 							<a href="board.go?page=1">Board</a>
 						</td>
 						<td id="menuBtn">
-							<a href="">Gallery</a>
+							<a href="gallery.go">Gallery</a>
 						</td>
 					</tr>
 				</table>

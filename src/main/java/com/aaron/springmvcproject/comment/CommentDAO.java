@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.aaron.springmvcproject.board.BoardMapper;
 import com.aaron.springmvcproject.board.BoardWriting;
+import com.aaron.springmvcproject.member.Member;
 
 @Service
 public class CommentDAO {
@@ -25,6 +26,9 @@ public class CommentDAO {
 			if (lastToken != null && token.equals(lastToken)) {
 				return;
 			}
+			
+			Member m = (Member) req.getSession().getAttribute("loginMember");
+			c.setSpc_writer(m.getSpm_id());
 			
 			if (ss.getMapper(CommentMapper.class).create(c) == 1) {
 				req.setAttribute("r", "Success Create");

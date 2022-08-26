@@ -10,9 +10,9 @@
 		<config>src/main/resources/memberMapper.xml</config>
 		<config>src/main/resources/boardMapper.xml</config>
 		<config>src/main/resources/commentMapper.xml</config>
+		<config>src/main/resources/galleryMapper.xml</config>
 	</configs>
 	<autoconfigs>
-		<config>src/main/webapp/WEB-INF/spring/root-context.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>

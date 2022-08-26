@@ -77,7 +77,6 @@
 			<td id="commentInput" align="center">
 				<textarea id="commentInputTextarea" name="spc_content" placeholder="Comment" maxlength="180"></textarea>
 				<input name="spc_board_no" value="${bw.spb_no }" readonly="readonly" type="hidden">
-				<input name="spc_writer" value="${sessionScope.loginMember.spm_id }"  readonly="readonly" type="hidden">
 				<input name="token" value="${token }" readonly="readonly" type="hidden">
 			</td>
 			<td id="commentInputBtn" align="center">

@@ -1,4 +1,6 @@
 var startBtnSwitch = true;
+var galleryUploadSwitch = true;
+
 function connectFoldMenuEvnet() {
 	$("#contentsArea").click(function() {
 		startBtnSwitch = true;
@@ -27,6 +29,15 @@ function showTitle() {
 	setTimeout(function(){
 		$("#headerArea").css("opacity", "1");
 	}, 100);
+}
+
+function showGalleryUpload() {
+	if (galleryUploadSwitch) {
+		$("#uploadGalleryTable").css("opacity", "1").css("right", "820px");
+	} else {
+		$("#uploadGalleryTable").css("opacity", "0").css("right", "-300px");
+	}
+	galleryUploadSwitch = !galleryUploadSwitch;
 }
 
 $(function(){
