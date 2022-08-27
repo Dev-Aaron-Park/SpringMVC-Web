@@ -3,9 +3,9 @@ var galleryUploadSwitch = true;
 
 // 나중에 이 기능 옮겨야 함 Memo 위에 새로운 색상 선택 칸 만들어서
 function connectGalleryMemoColorChangeEvent() {
-	$("#galleryMemoInput").keyup(function(){
+	$("#galleryColorInput").keyup(function(){
 		var c = $(this).val();
-		$(".galleryMemoColor").css("color", "#" + c);
+		$(".galleryMemoColor").css("color", c);
 	});
 }
 

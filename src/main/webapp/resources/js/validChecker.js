@@ -162,3 +162,29 @@ function checkEdit() {
 
 	return true;
 }
+
+function checkGalleryUpload() {
+	var photo = document.galleryUploadForm.spg_photo;
+	var memo = document.galleryUploadForm.spg_memo;
+	
+	if (isEmpty(memo)) {
+		
+		alert("Please Check Your Memo.");
+		memo.value = "";
+		memo.focus();
+		return false;
+	}
+	
+	if (isEmpty(photo) ||
+		(isNotType(photo, "png") && isNotType(photo, "gif")
+		&& isNotType(photo, "jpg") && isNotType(photo, "bmp"))) {
+		
+		alert("Please Check Your Photo.");
+		photo.value = "";
+		photo.focus();
+		return false;
+	}
+	
+	return true;
+}
+

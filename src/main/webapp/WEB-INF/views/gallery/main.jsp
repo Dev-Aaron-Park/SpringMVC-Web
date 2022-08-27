@@ -21,7 +21,7 @@
 				<table id="galleryCard" style="float: left">
 					<tr>
 						<td colspan="3" id="galleryCardPhoto" align="center">
-							<img src="resources/img/galleryPhoto/${p.spg_photo }">
+							<a href="resources/img/galleryPhoto/${p.spg_photo }"><img src="resources/img/galleryPhoto/${p.spg_photo }"></a>
 						</td>
 					</tr>
 					<tr>
@@ -33,7 +33,7 @@
 						</td>
 						<c:if test="${ p.spg_writer == sessionScope.loginMember.spm_id}">
 						<td colspan="3" id="galleryCardDeleteBtn" align="center">
-							<a href="gallery.delete.do?spg_no=${p.spg_no }">Delete</a>
+							<a onclick="galleryDeleteDo(${p.spg_no })">Delete</a>
 						</td>
 						</c:if>
 					</tr>
@@ -48,7 +48,7 @@
 		</tr>
 	</table>
 	
-	<form action="gallery.upload.do" method="POST" enctype="Multipart/form-data">
+	<form name="galleryUploadForm" action="gallery.upload.do" method="POST" enctype="Multipart/form-data" onsubmit="return checkGalleryUpload();">
 	<table id="uploadGalleryTable" border="1">
 		<tr>
 			<td id="uploadGalleryCloseBtn" align="right">
@@ -60,6 +60,12 @@
 			<td id="uploadGalleryFile" align="center">
 				<input name="spg_photo" type="file">
 			</td>		
+		</tr>
+		<!-- 갤러리 메모 색깔 넣을 수 있는 기능, DB 개편 필요 -->
+		<tr>
+			<td id="uploadGalleryColor" align="center">
+				<input id="galleryColorInput" name="spg_color" value="#000000" placeholder="Color Custom">
+			</td>	
 		</tr>
 		<tr>
 			<td id="uploadGalleryMemo" align="center">
