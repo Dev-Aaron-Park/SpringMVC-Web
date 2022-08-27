@@ -5,4 +5,20 @@
 		parameterType="com.aaron.springmvcproject.gallery.Gallery">
 		insert into smvc_project_gallery values(smvc_project_gallery_seq.nextval, #{spg_writer}, #{spg_photo}, #{spg_memo}, sysdate)
 	</insert>
+	
+	<select id="readAllPhotos"
+		resultType="com.aaron.springmvcproject.gallery.Gallery">
+		select * from smvc_project_gallery order by spg_date desc
+	</select>
+	
+	<select id="deleteCheck"
+		parameterType="com.aaron.springmvcproject.gallery.Gallery"
+		resultType="com.aaron.springmvcproject.gallery.Gallery">
+		select * from smvc_project_gallery where spg_no=#{spg_no}
+	</select>
+	
+	<delete id="delete"
+		parameterType="com.aaron.springmvcproject.gallery.Gallery">
+		delete from smvc_project_gallery where spg_no=#{spg_no}
+	</delete>
 </mapper>

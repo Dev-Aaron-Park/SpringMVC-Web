@@ -22,6 +22,7 @@ public class GalleryController {
 	@RequestMapping(value = "/gallery.go", method = RequestMethod.GET)
 	public String galleryGo(HttpServletRequest req) {
 		AaronTokenGenerator.generate(req);
+		gDAO.readAllPhoto(req);
 		mDAO.isLogined(req);
 		req.setAttribute("contentsPage", "gallery/main.jsp");
 		return "index";
@@ -31,6 +32,21 @@ public class GalleryController {
 	public String UploadDo(Gallery g, HttpServletRequest req) {
 		if (mDAO.isLogined(req)) {
 			gDAO.upload(g, req);
+			gDAO.readAllPhoto(req);
+			AaronTokenGenerator.generate(req);
+			req.setAttribute("contentsPage", "gallery/main.jsp");
+		} else {
+			req.setAttribute("contentsPage", "home.jsp");
+		}
+		return "index";
+	}
+	
+	@RequestMapping(value = "/gallery.delete.do", method = RequestMethod.GET)
+	public String DeleteDo(Gallery g, HttpServletRequest req) {
+		if (mDAO.isLogined(req)) {
+			gDAO.delete(g, req);
+			gDAO.readAllPhoto(req);
+			AaronTokenGenerator.generate(req);
 			req.setAttribute("contentsPage", "gallery/main.jsp");
 		} else {
 			req.setAttribute("contentsPage", "home.jsp");

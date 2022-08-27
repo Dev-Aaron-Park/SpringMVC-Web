@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,134 +9,41 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table id="galleryTable" border="1">
+	<table id="galleryTable">
 		<tr>
 			<td align="right">
-				<a onclick="showGalleryUpload();">Upload</a>
+				<a id="uploadGalleryBtn" onclick="showGalleryUpload();">Upload</a>
 			</td>
 		</tr>
 		<tr>
 			<td>
+				<c:forEach var="p" items="${photos }">
 				<table id="galleryCard" style="float: left">
 					<tr>
-						<td colspan="2" id="galleryCardPhoto" align="center">
-							Photo
+						<td colspan="3" id="galleryCardPhoto" align="center">
+							<img src="resources/img/galleryPhoto/${p.spg_photo }">
 						</td>
 					</tr>
 					<tr>
 						<td id="galleryCardId" align="center">
-							IDasd
+							${p.spg_writer }
 						</td>
 						<td id="galleryCardDate" align="center">
-							Date
+							<fmt:formatDate value="${p.spg_date }" type="date" pattern = "yyyy-MM-dd (E)"/>
 						</td>
+						<c:if test="${ p.spg_writer == sessionScope.loginMember.spm_id}">
+						<td colspan="3" id="galleryCardDeleteBtn" align="center">
+							<a href="gallery.delete.do?spg_no=${p.spg_no }">Delete</a>
+						</td>
+						</c:if>
 					</tr>
 					<tr>
-						<td colspan="2" id="galleryCardMemo" align="center">
-							Memo
+						<td colspan="3" id="galleryCardMemo" align="center">
+							${p.spg_memo }
 						</td>
 					</tr>
 				</table>
-				<table id="galleryCard" border="1" style="float: left">
-					<tr>
-						<td colspan="2">
-							Photo
-						</td>
-					</tr>
-					<tr>
-						<td>
-							ID
-						</td>
-						<td>
-							Date
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							Memo
-						</td>
-					</tr>
-				</table>
-				<table id="galleryCard" border="1" style="float: left">
-					<tr>
-						<td colspan="2">
-							Photo
-						</td>
-					</tr>
-					<tr>
-						<td>
-							ID
-						</td>
-						<td>
-							Date
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							Memo
-						</td>
-					</tr>
-				</table>
-				<table id="galleryCard" border="1" style="float: left">
-					<tr>
-						<td colspan="2">
-							Photo
-						</td>
-					</tr>
-					<tr>
-						<td>
-							ID
-						</td>
-						<td>
-							Date
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							Memo
-						</td>
-					</tr>
-				</table>
-				<table id="galleryCard" border="1" style="float: left">
-					<tr>
-						<td colspan="2">
-							Photo
-						</td>
-					</tr>
-					<tr>
-						<td>
-							ID
-						</td>
-						<td>
-							Date
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							Memo
-						</td>
-					</tr>
-				</table>
-				<table id="galleryCard" border="1" style="float: left">
-					<tr>
-						<td colspan="2">
-							Photo
-						</td>
-					</tr>
-					<tr>
-						<td>
-							ID
-						</td>
-						<td>
-							Date
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							Memo
-						</td>
-					</tr>
-				</table>
+				</c:forEach>
 			</td>
 		</tr>
 	</table>
@@ -154,7 +63,7 @@
 		</tr>
 		<tr>
 			<td id="uploadGalleryMemo" align="center">
-				<input name="spg_memo" placeholder="Memo">
+				<input id="galleryMemoInput" class="galleryMemoColor" name="spg_memo" placeholder="Memo">
 			</td>	
 		</tr>
 		<tr>

@@ -18,6 +18,27 @@ public class GalleryDAO {
 	
 	@Autowired
 	private SqlSession ss;
+
+	public void delete(Gallery g, HttpServletRequest req) {
+		try {
+			Gallery gCheck = ss.getMapper(GalleryMapper.class).deleteCheck(g);
+			Member m = (Member) req.getSession().getAttribute("loginMember");
+			
+			if (gCheck == null || !gCheck.getSpg_writer().equals(m.getSpm_id())) {
+				req.setAttribute("r", "Delete Failed");
+				return;
+			} else {
+				if (ss.getMapper(GalleryMapper.class).delete(g) == 1) {
+					req.setAttribute("r", "Delete Success");
+				} else {
+					req.setAttribute("r", "Delete Failed");
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			req.setAttribute("r", "Delete Failed");
+		}
+	}
 	
 	public void upload(Gallery g, HttpServletRequest req) {
 		String path = req.getSession().getServletContext().getRealPath("resources/img/galleryPhoto");
@@ -39,7 +60,6 @@ public class GalleryDAO {
 			String lastToken = (String) req.getSession().getAttribute("galleryUploadToken");
 			
 			if (lastToken != null && token.equals(lastToken)) {
-				System.out.println("Token Failed");
 				return;
 			}
 			
@@ -47,9 +67,6 @@ public class GalleryDAO {
 			String photo = mr.getFilesystemName("spg_photo");
 			photo = URLEncoder.encode(photo, "utf-8").replace("+", " ");
 			String memo = mr.getParameter("spg_memo");
-			
-			System.out.println(photo);
-			System.out.println(memo);
 			
 			g.setSpg_writer(m.getSpm_id());
 			g.setSpg_photo(photo);
@@ -67,6 +84,14 @@ public class GalleryDAO {
 			e.printStackTrace();
 			new File(path + "/" + mr.getFilesystemName("spg_photo")).delete();
 			req.setAttribute("r", "Upload Failed");
+		}
+	}
+
+	public void readAllPhoto(HttpServletRequest req) {
+		try {
+			req.setAttribute("photos", ss.getMapper(GalleryMapper.class).readAllPhotos());
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 }

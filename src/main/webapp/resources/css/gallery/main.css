@@ -4,6 +4,12 @@
 	width: 90%;
 }
 
+#uploadGalleryBtn {
+	color: #4CAF50;
+	font-weight: 700;
+	margin-right: 30px;
+}
+
 #galleryCard {
 	margin-top: 10px;
 	margin-left: 17px;
@@ -20,13 +26,23 @@
 	border-radius: 5px;
 }
 
+#galleryCardPhoto img{
+	border: #37474F solid 4px;
+	border-radius: 5px;
+	height: 240px;
+	max-width: 220px;
+}
+
 #galleryCardId {
-	height: 40px;
+	font-size: 9pt;
+	height: 30px;
 	background-color: #CFD8DC;
 	border-radius: 5px;
 }
 
 #galleryCardDate {
+	width: 50%;
+	font-size: 9pt;
 	background-color: #CFD8DC;
 	border-radius: 5px;	
 }
@@ -35,6 +51,18 @@
 	height: 60px;
 	background-color: #CFD8DC;
 	border-radius: 5px;	
+}
+
+#galleryCardDeleteBtn {
+	width: 20%;
+	height: 30px;
+	background-color: #CFD8DC;
+	border-radius: 5px;
+}
+
+#galleryCardDeleteBtn a {
+	color: #DD2C00;
+	font-weight: 700;
 }
 
 #uploadGalleryTable {
@@ -60,4 +88,8 @@
 	background-color: #B0BEC5;
 	border: none;
 	outline: none;
+}
+
+.galleryMemoColor {
+	color: black;
 }

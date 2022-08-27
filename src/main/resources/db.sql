@@ -75,3 +75,5 @@ create table smvc_project_gallery(
 
 create sequence smvc_project_gallery_seq;
 
+select * from smvc_project_gallery;
+
