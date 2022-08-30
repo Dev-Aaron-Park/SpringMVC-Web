@@ -2,6 +2,7 @@ function checkJoin() {
 	var id = document.joinForm.joinId;
 	var pw = document.joinForm.joinPw;
 	var pwc = document.joinForm.joinPwc;
+	var bcn = document.joinForm.joinBcn;
 	var name = document.joinForm.joinName;
 	var birth1 = document.joinForm.joinBirth1;
 	var birth2 = document.joinForm.joinBirth2;
@@ -11,8 +12,11 @@ function checkJoin() {
 	var photo = document.joinForm.joinPhoto;
 
 	// ID 중복검사, 블록체인 관련 유효성 검사 추가 예정
-
-	if (isEmpty(id) || isUnValidString(id)) {
+	// alert($("#memberJoinBCN").css("border"));
+	// 3px solid rgb(255, 0, 0)
+	
+	if (isEmpty(id) || isUnValidString(id)
+			|| $("#memberJoinID").css("color") == "rgb(255, 0, 0)") {
 
 		alert("Please Check Your ID.");
 		id.value = "";
@@ -29,7 +33,13 @@ function checkJoin() {
 		pw.focus();
 		return false;
 	}
-
+	
+	if ($("#memberJoinBCN").css("border-color") == "rgb(255, 0, 0)") {
+		
+		alert("Please Check Your Block Chain Number.")
+		return false;
+	}
+	
 	if (isEmpty(name)) {
 		alert("Please Check Your Name.");
 		name.value = "";

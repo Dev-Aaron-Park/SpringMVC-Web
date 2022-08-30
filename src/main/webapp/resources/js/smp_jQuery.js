@@ -48,9 +48,69 @@ function showGalleryUpload() {
 	galleryUploadSwitch = !galleryUploadSwitch;
 }
 
+function connectMemberJoinIDInputKeyEvent() {
+	$("#memberJoinID").keyup(function(e){
+		var id = $(this).val();
+		$.getJSON("member.get?spm_id=" + id, function(memberData){
+			if (memberData.member[0] == null) {
+				$("#memberJoinID").css("color", "black");
+			} else {
+				$("#memberJoinID").css("color", "red");
+			}
+		});
+	});
+}
+
+function connectMemberJoinBCNInputEvent() {
+	var bcn = $("#memberJoinBCN").val();
+	$("#memberJoinBCN").mousedown(function() {
+		$(this).val("820");
+		$(this).css("font-size", "15pt");
+	});
+	$("#memberJoinBCN").mouseup(function() {
+		$(this).val(bcn);
+		$(this).css("font-size", "9pt");
+		$(this).css("border-color", "#00E676");
+	});
+}
+
+function connectMemberJoinAddrSearchEvent() {
+	$("#memberJoinAddr1, #memberJoinAddr2").click(function(){
+		new daum.Postcode({
+	        oncomplete: function(data) {
+	        	$("#memberJoinAddr1").val(data.zonecode);
+	        	$("#memberJoinAddr2").val(data.roadAddress);
+	        }
+	    }).open();
+	});
+}
+
+function connectMemberEditAddrSearchEvent() {
+	$("#memberEditAddr1, #memberEditAddr2").click(function(){
+		new daum.Postcode({
+			oncomplete: function(data) {
+				$("#memberEditAddr1").val(data.zonecode);
+				$("#memberEditAddr2").val(data.roadAddress);
+			}
+		}).open();
+	});
+}
+
 $(function(){
 	connectGalleryMemoColorChangeEvent();
 	connectSummonStartMenuEvent();
+	connectMemberEditAddrSearchEvent();
+	connectMemberJoinAddrSearchEvent();
+	connectMemberJoinBCNInputEvent();
+	connectMemberJoinIDInputKeyEvent();
 	connectFoldMenuEvnet();
 	showTitle();
 });
+
+
+
+
+
+
+
+

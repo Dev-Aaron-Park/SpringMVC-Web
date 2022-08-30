@@ -77,3 +77,5 @@ create sequence smvc_project_gallery_seq;
 
 select * from smvc_project_gallery;
 
+delete from smvc_project_member where spm_id='testa';
+

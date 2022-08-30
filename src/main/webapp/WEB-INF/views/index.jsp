@@ -21,6 +21,7 @@
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/smp_jQuery.js"></script>
 <script type="text/javascript" src="resources/js/link.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
 	<table id="headerArea">

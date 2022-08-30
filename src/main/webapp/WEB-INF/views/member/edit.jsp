@@ -49,12 +49,12 @@
 		</tr>
 		<tr>
 			<td align="center">
-				<input value="${addr1 }" name="editAddr1" class="joinInput" placeholder="우편번호">
+				<input id="memberEditAddr1" value="${addr1 }" name="editAddr1" class="joinInput" placeholder="우편번호">
 			</td>
 		</tr>
 		<tr>
 			<td align="center">
-				<input value="${addr2 }" name="editAddr2" class="joinInput" placeholder="기본주소">
+				<input id="memberEditAddr2" value="${addr2 }" name="editAddr2" class="joinInput" placeholder="기본주소">
 			</td>
 		</tr>
 		<tr>

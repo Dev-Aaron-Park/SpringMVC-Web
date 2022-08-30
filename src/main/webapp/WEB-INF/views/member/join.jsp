@@ -18,7 +18,7 @@
 		</tr>
 		<tr>
 			<td align="center">
-				<input name="joinId" class="joinInput" placeholder="ID" autofocus="autofocus" autocomplete="off" maxlength="10">
+				<input id="memberJoinID" name="joinId" class="joinInput" placeholder="ID" autofocus="autofocus" autocomplete="off" maxlength="10">
 			</td>
 		</tr>
 		<tr>
@@ -33,7 +33,7 @@
 		</tr>
 		<tr>
 			<td align="center">
-				<input name="joinBcn" class="joinInput" placeholder="Block Chain No." maxlength="70" autocomplete="off" style="font-size:6pt"
+				<input id="memberJoinBCN" style="border:red solid 3px; font-size:9pt; cursor:pointer;" name="joinBcn" class="joinInput" placeholder="Block Chain No." maxlength="70" autocomplete="off" style="font-size:6pt"
 				value="0x95b67ef448e248996a8cfeec200e4f5b423e2898ecc007d4b5b5b7b96fd8bbbe" readonly="readonly">
 			</td>
 		</tr>
@@ -49,12 +49,12 @@
 		</tr>
 		<tr>
 			<td align="center">
-				<input name="joinAddr1" class="joinInput" placeholder="우편번호">
+				<input id="memberJoinAddr1" name="joinAddr1" class="joinInput" placeholder="우편번호" readonly="readonly">
 			</td>
 		</tr>
 		<tr>
 			<td align="center">
-				<input name="joinAddr2" class="joinInput" placeholder="기본주소">
+				<input id="memberJoinAddr2" name="joinAddr2" class="joinInput" placeholder="기본주소" readonly="readonly">
 			</td>
 		</tr>
 		<tr>

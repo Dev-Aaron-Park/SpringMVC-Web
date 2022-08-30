@@ -6,6 +6,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -131,6 +132,12 @@ public class MemberDAO {
 		req.setAttribute("addr3", address[1]);
 	}
 	
+	public Members getMemberInfo(Member m) {
+		List<Member> l = ss.getMapper(MemberMapper.class).getMemberByIDList(m);
+		Members members = new Members(l);
+		return members;
+	}
+	
 	public boolean isLogined(HttpServletRequest req) {
 		Member m = (Member) req.getSession().getAttribute("loginMember");
 		if (m != null) {
@@ -223,6 +230,5 @@ public class MemberDAO {
 	public void logout(HttpServletRequest req) {
 		req.getSession().setAttribute("loginMember", null);
 	}
-
 	
 }

@@ -16,6 +16,13 @@
 		where spm_id = #{spm_id}
 	</select>
 	
+	<select id="getMemberByIDList"
+		parameterType="com.aaron.springmvcproject.member.Member"
+		resultType="com.aaron.springmvcproject.member.Member">
+		select * from smvc_project_member
+		where spm_id = #{spm_id}
+	</select>
+	
 	<update id="update" parameterType="com.aaron.springmvcproject.member.Member">
 		update smvc_project_member
 		set spm_id=#{spm_id}, spm_bcn=#{spm_bcn}, spm_name=#{spm_name},
