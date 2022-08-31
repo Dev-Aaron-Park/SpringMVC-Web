@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+#mapArea {
+	position: fixed;
+	margin-left: 87px;
+	background-color: #607D8B;
+	border: #B0BEC5 solid 4px;
+	border-radius: 4px;
+}
+
+
+#searchResult {
+	margin-top: 450px;
+	width: 85%;
+	background-color: #B0BEC5;
+	border: #607D8B solid 2px;
+}
+
+#searchResultTr{
+	background-color: #EEEEEE;
+	height: 40px;
+	color: #455A64;
+	font-weight: 700;
+}
+
+#searchResultTr:hover{
+	background-color: #CFD8DC;
+	cursor: pointer;
+}
