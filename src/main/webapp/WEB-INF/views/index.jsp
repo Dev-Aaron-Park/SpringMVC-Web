@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="resources/css/board/edit.css">
 <link rel="stylesheet" href="resources/css/gallery/main.css">
 <link rel="stylesheet" href="resources/css/foodFinder/main.css">
+<link rel="stylesheet" href="resources/css/chat/main.css">
 <script type="text/javascript" src="resources/js/validChecker.js"></script>
 <script type="text/javascript" src="resources/js/aaronValidChecker.js"></script>
 <script type="text/javascript" src="resources/js/rechecker.js"></script>
@@ -23,8 +24,10 @@
 <script type="text/javascript" src="resources/js/smp_jQuery.js"></script>
 <script type="text/javascript" src="resources/js/smp_jQuery_map.js"></script>
 <script type="text/javascript" src="resources/js/link.js"></script>
+<script type="text/javascript" src="resources/js/chat.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cbe1c822ce8200bbd50a9f0245a2418b"></script>
+<script type="text/javascript" src="http://192.168.1.3:5244/socket.io/socket.io.js"></script>
 </head>
 <body>
 	<table id="headerArea">
@@ -51,6 +54,9 @@
 						</td>
 						<td id="menuBtn">
 							<a href="foodfinder.go">Food Finder</a>
+						</td>
+						<td id="menuBtn">
+							<a href="chat.go">Chat</a>
 						</td>
 					</tr>
 				</table>

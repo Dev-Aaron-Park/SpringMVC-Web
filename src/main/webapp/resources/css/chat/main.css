@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+#chatArea {
+	width: 60%;
+	height: 720px;
+	background-color: #607D8B;
+	border: #B0BEC5 solid 4px;
+	border-radius: 4px;
+}
+
+#chatShowArea textarea {
+	width: 650px;
+	height: 600px;
+	resize: none;
+	border: #EEEEEE solid 2px;
+	border-radius: 4px;
+	margin-top: 20px;
+	outline: none;
+	cursor: default;
+	font-weight: 700;
+	color: #607D8B;
+}
+
+#chatInputArea {
+	height: 10%;
+}
+
+#chatInputArea input {
+	width: 82%;
+	height: 30px;
+	margin-right: 16px;
+	font-size: 12pt;
+	border-radius: 4px;
+	border: #EEEEEE solid 2px;
+	outline: none;
+}
+
+#chatInputArea button {
+	height: 35px;
+	background: #EEEEEE;
+	border: #B0BEC5 solid 2px;
+	border-radius: 4px;
+	font-weight: 700;
+	color: #607D8B;
+	cursor: pointer;
+}
