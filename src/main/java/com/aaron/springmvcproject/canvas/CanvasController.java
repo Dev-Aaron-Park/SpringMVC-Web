@@ -1,4 +1,4 @@
-package com.aaron.springmvcproject.chat;
+package com.aaron.springmvcproject.canvas;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -8,19 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.aaron.springmvcproject.member.MemberDAO;
-import com.aaron.token.generator.AaronTokenGenerator;
 
 @Controller
-public class ChatController {
+public class CanvasController {
 	
 	@Autowired
 	private MemberDAO mDAO;
 	
 	
-	@RequestMapping(value = "/chat.go", method = RequestMethod.GET)
-	public String chatGo(HttpServletRequest req) {
+	@RequestMapping(value = "/canvas.go", method = RequestMethod.GET)
+	public String canvasGo(HttpServletRequest req) {
 		mDAO.isLogined(req);
-		req.setAttribute("contentsPage", "chat/main.jsp");
+		req.setAttribute("contentsPage", "canvas/main.jsp");
 		return "index";
 	}
 }

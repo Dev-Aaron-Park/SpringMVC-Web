@@ -1,13 +1,12 @@
-$(function(){
+function connectChatEvenet(){
 	$("#chatInputArea input").keyup(function(e){
 		if (e.keyCode == 13) {
 			$("#chatInputArea button").trigger("click");
 		}
 	});
 	
-	var socket = null;
+	var socket = io.connect("http://192.168.1.3:5244");
 	var isFirstChat = true;
-	var chatWriter = null;
 	var myID = null;
 	
 	$("#chatInputArea button").click(function(){
@@ -22,17 +21,22 @@ $(function(){
 		if (isFirstChat) {
 			socket = io.connect("http://192.168.1.3:5244");
 			isFirstChat = false;
-			socket.on("yourData", function(msg){
+			socket.on("yourChatData", function(msg){
 				if (msg.id == myID) {
 					$("#chatShowArea textarea").append(" [ 나 ] : "+ msg.msg + "\r\n");
 				} else {
 					$("#chatShowArea textarea").append(" [ "+ msg.id + " ] : "+ msg.msg + "\r\n");
 				}
+				$('#chatTextArea').scrollTop($('#chatTextArea').prop('scrollHeight'));
 			});
 		}
 		
-		socket.emit("myData", {id: myID, msg: chatMsg});
+		socket.emit("myChatData", {id: myID, msg: chatMsg});
 		$("#chatInput").val("");
 	});
-	
+}
+
+
+$(function(){
+	connectChatEvenet();
 });
