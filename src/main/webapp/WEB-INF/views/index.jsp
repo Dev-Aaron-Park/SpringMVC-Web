@@ -24,6 +24,7 @@
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/smp_jQuery.js"></script>
 <script type="text/javascript" src="resources/js/smp_jQuery_map.js"></script>
+<script type="text/javascript" src="resources/js/smp_jQuery_map_test.js"></script>
 <script type="text/javascript" src="resources/js/link.js"></script>
 <script type="text/javascript" src="resources/js/chat.js"></script>
 <script type="text/javascript" src="resources/js/canvas.js"></script>

@@ -1,12 +1,12 @@
-var rc = new kakao.maps.RoadviewClient();
-var map = null;
+var rc = null;
 var rv = null;
+var map = null;
 var marker = null;
+
 function moveMap(lat, lng){
 	var there = new kakao.maps.LatLng(lat, lng);
 	map.setCenter(there);
 	rc.getNearestPanoId(there, 100, function(photoSpot){
-		alert("?");
 		rv.setPanoId(photoSpot, there);
 	});
 	marker.setPosition(there);
@@ -15,22 +15,18 @@ function moveMap(lat, lng){
 function connectMapEvent() {
 	var mapArea = document.getElementById("map");
 	var rvArea = document.getElementById("rv");
-	// http의 한계로 인해 장소 지정(사용자 위치 받아와서 검색할 수 있는 기능은 보안상 https로 가능)
-	// navigator.geolocation.getCurrentPosition(function(loc){
-		// var lat = loc.coords.latitude;
-		// var lng = loc.coords.longitude;
+//	navigator.geolocation.getCurrenPosition(function(loc){
+	
 	var lat = 37.497952;
 	var lng = 127.027619;
 	var position = new kakao.maps.LatLng(lat, lng);
 	map = new kakao.maps.Map(mapArea, {center: position});
+	rc = new kakao.maps.RoadviewClient();
 	rv = new kakao.maps.Roadview(rvArea);
 	marker = new kakao.maps.Marker({
-	    map: map,
-	    position: position
+		map: map, position: position
 	});
-	// moveMap(lat, lng);
-	
-	// });
+	moveMap(lat, lng);
 	
 	$("#mapSearch1").keyup(function(){
 		$.ajax({
@@ -40,8 +36,6 @@ function connectMapEvent() {
 				req.setRequestHeader("Authorization", "KakaoAK 738a2e2afc750eba83dce81847a5fa16");
 			},
 			success : function(addrData) {
-				alert(addrData.documents[0].y);
-				alert(addrData.documents[0].x);
 				moveMap(addrData.documents[0].y, addrData.documents[0].x);
 			}
 		});
