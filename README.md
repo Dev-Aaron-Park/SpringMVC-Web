@@ -23,7 +23,7 @@
 
 ### Front End
 ![Frontend_JSP](https://user-images.githubusercontent.com/111879447/191028360-190b3006-2be0-4666-b577-574237ceb7ac.jpg)
-![Frontend_CSS](https://user-images.githubusercontent.com/111879447/191028390-464e882c-d62f-47c7-acd7-6673a50e8262.jpg)
+![Frontend_CSS](https://user-images.githubusercontent.com/111879447/191028702-cd036a62-5ce5-48b6-abf1-32a2ae614428.jpg)
 ![Frontend_JS](https://user-images.githubusercontent.com/111879447/191028403-87be585c-5604-4a01-96a2-2a2da024aa79.jpg)
 
 
