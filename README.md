@@ -70,7 +70,7 @@
 ![Frontend_JS](https://user-images.githubusercontent.com/111879447/191286025-ec0e59ea-583d-4259-892a-67e865fd4977.jpg)
 
 ### Backend
-![Backend](https://user-images.githubusercontent.com/111879447/191286076-102e0b42-10ee-40a6-bccf-84b2246f3c00.jpg)
+![Backend](https://user-images.githubusercontent.com/111879447/191287020-78b2e5cb-bc04-44e3-8629-22647fc6a1d5.jpg)
 
 ### DataBase
 ![Database_Structure](https://user-images.githubusercontent.com/111879447/191286088-b612d174-8257-41da-aeb0-f8638a31a056.jpg)
